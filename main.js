@@ -420,10 +420,11 @@ let alphaISRU;
 let alphaPReLU;
 let alphaELU;
 let valueStr;
+
 start();
 
 function refresh() {
-	window.location.reload(1);
+	window.location.reload();
 }
 
 function start() {
@@ -452,10 +453,10 @@ function start() {
 	SQNLaf = document.getElementById('SQNL');
 	BentIdentity = document.getElementById('BentIdentity');
 	Swish1 = document.getElementById('Swish1');
-
 	alphaISRU = document.getElementById('alphaISRU').valueAsNumber;
 	alphaPReLU = document.getElementById('alphaPReLU').valueAsNumber;
 	alphaELU = document.getElementById('alphaELU').valueAsNumber;
+
 	getStartLane = document.getElementById('SLane').valueAsNumber;
 	getWidth = document.getElementById('Width').valueAsNumber;
 	getHeight = document.getElementById('Height').valueAsNumber;

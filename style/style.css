@@ -4,6 +4,9 @@ body {
 	overflow: hidden;
 	text-align: center;
 }
+:root {
+	--gradient: linear-gradient(44deg, #5c258d, #4389a2);
+}
 #Canvas {
 	background: lightgray;
 }
@@ -23,7 +26,7 @@ body {
 .toggle-nav {
 	width: 60px;
 	height: 100%;
-	background-color: #87ceeb;
+	background-color: #f0c47d;
 	background-image: url('/icons/control.png');
 	background-repeat: no-repeat;
 	background-size: 40%;
@@ -31,7 +34,7 @@ body {
 	cursor: pointer;
 }
 .toggle-nav:hover {
-	background-color: aquamarine;
+	background-color: #f0c54a;
 }
 .top-nav {
 	display: flex;
@@ -43,18 +46,22 @@ body {
 	list-style: none;
 	line-height: 30px;
 }
-.top-nav li :hover {
+.top-nav li a :hover {
 	transition: all 0.3s ease-in-out;
-	background-color: aquamarine;
-	height: 160%;
+	background-color: #f0c44ac2;
+	height: 70px;
+	width: 70px;
 }
 .top-nav li a {
 	display: block;
-	height: 200%;
 	padding: 0 10px;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: #111;
+	background-image: var(--gradient);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-size: 400%;
+	animation: bg-animation 44s infinite alternate;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 }
@@ -65,7 +72,9 @@ body {
 	bottom: 0px;
 	width: 50px;
 	padding: 0 5px;
-	background-color: #111;
+	background-image: var(--gradient);
+	background-size: 400%;
+	animation: bg-animation 44s infinite alternate;
 	height: calc(100vh - 60px);
 	z-index: 1000;
 	transition: all 0.5s ease-in-out;
@@ -79,20 +88,20 @@ body {
 .side-nav-content li {
 	line-height: 30px;
 	list-style: none;
-	border-bottom: 1px inset aquamarine;
-	border-radius: 0px 0px 0px 5px;
+	border-bottom: 1px inset #f0c54a;
+	border-radius: 0px 0px 0px 0px;
 }
 .title {
 	cursor: default;
-	font-size: 18px;
+	font-size: 22px;
 	color: #f1f1f1;
-	margin-left: 40px;
+	margin-left: 22px;
 	font-weight: bold;
 }
 .side-nav-content label {
 	display: block;
-	height: auto;
-	padding: 0 10px;
+	height: 30px;
+	padding: 3px 10px;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #f1f1f1;
@@ -102,9 +111,11 @@ body {
 	transition: all 0.5s ease-in-out;
 	cursor: pointer;
 	font-weight: bold;
+	border-bottom: 1px inset #f0c54a;
+	border-radius: 0px 0px 0px 0px;
 }
 .side-nav-content label:hover {
-	color: aquamarine;
+	color: #f0c54a;
 }
 .sliderContainer {
 	margin-bottom: 5px;
@@ -128,10 +139,10 @@ body {
 	border-radius: 12px;
 	cursor: pointer;
 	outline: none;
-	opacity: 0.7;
+	opacity: 0.8;
 	-webkit-transition: 0.2s;
 	transition: opacity 0.2s;
-	box-shadow: 0 0.5px 0.5px 0.5px aquamarine;
+	box-shadow: 0 0.5px 0.5px 0.5px #f0c54a;
 }
 .slider:hover {
 	opacity: 1;
@@ -141,7 +152,7 @@ body {
 	appearance: none;
 	width: 20px;
 	height: 20px;
-	background: #87ceeb;
+	background: #f0c54a;
 	border-radius: 50%;
 }
 .sliderContainer p {
@@ -152,7 +163,7 @@ body {
 	cursor: default;
 }
 .sliderContainer p:hover {
-	color: aquamarine;
+	color: #f0c54a;
 	transition: color 0.3s ease-in-out;
 }
 #side-nav-content label + input[type='radio'] {
@@ -162,8 +173,8 @@ body {
 	max-height: 900px;
 }
 .waysContainer {
-	--radio: #87ceeb;
-	--radio-checked: aquamarine;
+	--radio: #f0c47d;
+	--radio-checked: #96f03c;
 	--radio-size: 25px;
 	width: auto;
 	height: auto;
@@ -174,8 +185,8 @@ body {
 	align-items: center;
 }
 .waysContainerR {
-	--radio: #87ceeb;
-	--radio-checked: aquamarine;
+	--radio: #f0c47d;
+	--radio-checked: #96f03c;
 	--radio-size: 25px;
 	width: auto;
 	height: 555px;
@@ -191,6 +202,9 @@ body {
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-columns: 77px 44px;
+	border-bottom: 1px inset #f0c54a;
+	border-top: 1px inset #f0c54a;
+	border-radius: 0px 0px 0px 0px;
 }
 .radio {
 	-webkit-appearance: none;
@@ -210,6 +224,8 @@ body {
 	align-items: center;
 	overflow: hidden;
 	transition: border 0.5s ease;
+	border-bottom: 1px inset #f0c54a;
+	border-radius: 1px 1px 1px 1px;
 }
 .radio::before,
 .radio::after {
@@ -262,5 +278,16 @@ body {
 	}
 	100% {
 		transform: scale(1, 1);
+	}
+}
+@keyframes bg-animation {
+	0% {
+		background-position: left;
+	}
+	50% {
+		background-position: right;
+	}
+	100% {
+		background-position: left;
 	}
 }

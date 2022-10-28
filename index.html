@@ -1,278 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Machine Learning App</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning App</title>
+		<!--Style-->
+		<link rel="stylesheet" href="/style/style.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
+		<!------>
 
-    <!--Style-->
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <!------>
+		<!--Scripts-->
+		<script defer src="https://kit.fontawesome.com/1d74d301f5.js" crossorigin="anonymous"></script>
+		<script defer src="/js/settings.js"></script>
+		<script defer src="/js/visualiser.js"></script>
+		<script defer src="/js/neuralNetwork.js"></script>
+		<script defer src="/js/layers.js"></script>
+		<script defer src="/js/path.js"></script>
+		<script defer src="/js/sensor.js"></script>
+		<script defer src="/js/controls.js"></script>
+		<script defer src="/js/smartCar.js"></script>
+		<script defer src=" main.js"></script>
+		<!------>
+	</head>
 
-    <!--Scripts-->
-    <script defer src="https://kit.fontawesome.com/1d74d301f5.js" crossorigin="anonymous"></script>
-    <script defer src="/js/settings.js"></script>
-    <script defer src="/js/visualiser.js"></script>
-    <script defer src="/js/neuralNetwork.js"></script>
-    <script defer src="/js/layers.js"></script>
-    <script defer src="/js/path.js"></script>
-    <script defer src="/js/sensor.js"></script>
-    <script defer src="/js/controls.js"></script>
-    <script defer src="/js/smartCar.js"></script>
-    <script defer src=" main.js"></script>
-    <!------>
-
-</head>
-
-<body>
-    <nav class="nav-main">
-        <div class="toggle-nav" onclick="toggleSettings()"></div>
-        <ul class="top-nav">
-            <li><a onclick="refresh()"><i class="fa-sharp fa-solid fa-house  fa-2x fa-fw"></i></a> </li>
-            <li><a herf="#"><i class="fa-sharp fa-solid fa-file-powerpoint  fa-2x fa-fw"></i></a> </li>
-            <li><a onclick="saveNetwork()"><i class="fa-sharp fa-solid fa-floppy-disk fa-2x fa-fw"></i> Network </a>
-            </li>
-            <li><a onclick="deleteNetwork()"><i class="fa-sharp fa-solid fa-trash fa-2x fa-fw"></i> Network </a></li>
-            <li><a onclick="saveSettings()"><i class="fa-sharp fa-solid fa-floppy-disk fa-2x fa-fw"></i> Settings </a>
-            </li>
-            <li><a onclick="loadSettings()"><i class="fa-sharp fa-solid fa-upload fa-2x fa-fw"></i> Settings </a></li>
-            <li><a onclick="deleteSettings()"><i class="fa-sharp fa-solid fa-trash fa-2x fa-fw"></i> Settings </a></li>
-        </ul>
-    </nav>
-    <aside id="side-nav" class="side-nav">
-        <ul id="side-nav-content" class="side-nav-content">
-            <li><span class="title"> <i class="fa-solid fa-cog fa-spin fa-2x fa-fw"></i>Settings</span> </li>
-            <li><label for="first"><i class="fa-solid fa-car-side fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 6s;"></i> Car </label>
-                <input type="radio" name="accordion" id="first" checked>
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>Starting Lane ... <span id="sLane"></span> </p>
-                    <input class="slider" type="range" min="0" max="10" value="1" id="SLane" onchange="start()">
-                    <p>Width ... <span id="width"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="30" id="Width" onchange="start()">
-                    <p>Height ... <span id="height"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="50" id="Height" onchange="start()">
-                    <p>Max Speed ... <span id="maxSpeed"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="3" id="MaxSpeed" onchange="start()">
-                    <p>Acceleration ... <span id="acceleration"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="10" value="0.2" step="0.1" id="Acceleration"
-                        onchange="start()">
-                    <p>Friction ... <span id="friction"></span> </p>
-                    <input class="slider" type="range" min="0.01" max="1" value="0.05" step="0.01" id="Friction"
-                        onchange="start()">
-                    <p>Active Sensors ... <span id="aSensor"></span> </p>
-                    <input class="slider" type="range" min="1" max="20" value="10" id="ASensor" onchange="start()">
-                    <p>Sensor Length ... <span id="sLength"></span> </p>
-                    <input class="slider" type="range" min="1" max="300" value="120" id="SLength" onchange="start()">
-                    <p>Sensor Spread ... <span id="sSpread"></span> </p>
-                    <input class="slider" type="range" min="0.01" max="5" value="2.5" step="0.01" id="SSpread"
-                        onchange="start()">
-                </div>
-            </li>
-            <li><label for="forth"><i class="fa-solid fa-shapes fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 9s;"></i> Car
-                    Shape</label>
-                <input type="radio" name="accordion" id="forth">
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>A point... <span id="a"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="A" onchange="start()">
-                    <p>B point... <span id="b"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="B" onchange="start()">
-                    <p>C point... <span id="c"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="C" onchange="start()">
-                    <p>D point... <span id="d"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="D" onchange="start()">
-                    <p>E point... <span id="e"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="E" onchange="start()">
-                    <p>F point... <span id="f"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="F" onchange="start()">
-                    <p>G point... <span id="g"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="G" onchange="start()">
-                    <p>H point... <span id="h"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="H" onchange="start()">
-                </div>
-            </li>
-            <li><label for="second"><i class="fa-sharp fa-solid fa-road fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 5s;"></i> Path</label>
-                <input type="radio" name="accordion" id="second">
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>Lanes ... <span id="lanes"></span> </p>
-                    <input class="slider" type="range" min="1" max="10" value="4" id="Lanes" onchange="start()">
-                    <div class="waysContainer">
-                        <p>One Way </p>
-                        <input type="radio" name="trafficWay" id="oneWay" class="radio" checked onchange="start()">
-                        <p>Two Way </p>
-                        <input type="radio" name="trafficWay" id="twoWay" class="radio" onchange="start()">
-                        <p>Wrong Way </p>
-                        <input type="radio" name="trafficWay" id="wrongWay" class="radio" onchange="start()">
-                    </div>
-                    <div class="waysContainer">
-                        <p>You control</p>
-                        <input type="radio" name="controls" id="you" class="radio" onchange="start()">
-                        <p>AI controls</p>
-                        <input type="radio" name="controls" id="AI" class="radio" checked onchange="start()">
-                    </div>
-                </div>
-            </li>
-            <li><label for="third"><i class="fa-solid fa-traffic-light fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 7s;"></i> Traffic</label>
-                <input type="radio" name="accordion" id="third">
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>Width ... <span id="twidth"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="30" id="TWidth" onchange="start()">
-                    <p>Height ... <span id="theight"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="50" id="THeight" onchange="start()">
-                    <p>Max Speed ... <span id="tmaxSpeed"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="1" id="TMaxSpeed" onchange="start()">
-                    <p>Acceleration ... <span id="tacceleration"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="10" value="0.2" step="0.1" id="TAcceleration"
-                        onchange="start()">
-                    <p>Friction ... <span id="tfriction"></span> </p>
-                    <input class="slider" type="range" min="0.01" max="1" value="0.05" step="0.01" id="TFriction"
-                        onchange="start()">
-                    <p>Number of Traffic Cars ... <span id="nforTraffic"></span> </p>
-                    <input class="slider" type="range" min="1" max="100" value="20" id="NforTraffic" onchange="start()">
-                    <div class="waysContainer">
-                        <p>Predetermine Traffic</p>
-                        <input type="radio" name="SetOrRandom" id="Set" class="radio" checked onchange="start()">
-                        <p>Random Traffic</p>
-                        <input type="radio" name="SetOrRandom" id="Random" class="radio" onchange="start()">
-                    </div>
-                </div>
-            </li>
-            <li><label for="fifth"><i class="fa-solid fa-shapes fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 5s;"></i> Traffic Car
-                    Shape</label>
-                <input type="radio" name="accordion" id="fifth">
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>A point... <span id="ta"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TA"
-                        onchange="start()">
-                    <p>B point... <span id="tb"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TB"
-                        onchange="start()">
-                    <p>C point... <span id="tc"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TC"
-                        onchange="start()">
-                    <p>D point... <span id="td"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TD"
-                        onchange="start()">
-                    <p>E point... <span id="te"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TE"
-                        onchange="start()">
-                    <p>F point... <span id="tf"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TF"
-                        onchange="start()">
-                    <p>G point... <span id="tg"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TG"
-                        onchange="start()">
-                    <p>H point... <span id="th"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TH"
-                        onchange="start()">
-                </div>
-            </li>
-            <li><label for="sixth"><i class="fa-sharp fa-solid fa-brain fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 6s;"></i> Intelegencia</label>
-                <input type="radio" name="accordion" id="sixth">
-                <div id="sliderContainer" class="sliderContainer">
-                    <p>Second Layer nodes ... <span id="2nodes"></span> </p>
-                    <input class="slider" type="range" min="1" max="20" value="6" id="2Nodes" onchange="start()">
-                    <p>Third Layer nodes ... <span id="3nodes"></span> </p>
-                    <input class="slider" type="range" min="1" max="20" value="6" id="3Nodes" onchange="start()">
-                    <p>Number of Smart Cars ... <span id="nforCars"></span> </p>
-                    <input class="slider" type="range" min="1" max="1000" value="100" id="NforCars" onchange="start()">
-                    <p>Mutation amount ... <span id="mutate"></span> </p>
-                    <input class="slider" type="range" min="0.1" max="1" value="0.1" step="0.1" id="Mutate"
-                        onchange="start()">
-                </div>
-            </li>
-            <li><label for="seventh"><i class="fa-sharp fa-solid fa-section fa-2x fa-fw fa-flip"
-                        style="--fa-animation-duration: 7s;"></i>Choose Activation
-                    Function</label>
-                <input type="radio" name="accordion" id="seventh">
-                <div id="sliderContainer" class="sliderContainer">
-                    <div class="waysContainerR" id="allRadio">
-                        <p>Identity </p>
-                        <input type="radio" name="choAF" value="Identity" id="Identity" class="radio"
-                            onchange="start()">
-                        <p>Inverse </p>
-                        <input type="radio" name="choAF" value="Inverse" id="Inverse" class="radio" onchange="start()">
-                        <p>BinaryStep </p>
-                        <input type="radio" name="choAF" value="BinaryStep" id="BinaryStep" class="radio"
-                            onchange="start()">
-                        <p>Bipolar </p>
-                        <input type="radio" name="choAF" value="Bipolar" id="Bipolar" class="radio" onchange="start()">
-                        <p>Tanh </p>
-                        <input type="radio" name="choAF" value="Tanh" id="Tanh" class="radio" onchange="start()">
-                        <p>HardTanh </p>
-                        <input type="radio" name="choAF" value="HardTanh" id="HardTanh" class="radio"
-                            onchange="start()">
-                        <p>ArcTan </p>
-                        <input type="radio" name="choAF" value="ArcTan" id="ArcTan" class="radio" onchange="start()">
-                        <p>SoftSign </p>
-                        <input type="radio" name="choAF" value="SoftSign" id="SoftSign" class="radio"
-                            onchange="start()">
-                        <p>Erf </p>
-                        <input type="radio" name="choAF" value="Erf" id="Erf" class="radio" onchange="start()">
-                        <p>Sinc </p>
-                        <input type="radio" name="choAF" value="Sinc" id="Sinc" class="radio" onchange="start()">
-                        <p>Sinusoid </p>
-                        <input type="radio" name="choAF" value="Sinusoid" id="Sinusoid" class="radio"
-                            onchange="start()">
-                        <p>Sigmoid </p>
-                        <input type="radio" name="choAF" value="Sigmoid" id="Sigmoid" class="radio" checked
-                            onchange="start()">
-                        <p>BipolarSigmoid </p>
-                        <input type="radio" name="choAF" value="BipolarSigmoid" id="BipolarSigmoid" class="radio"
-                            onchange="start()">
-                        <p>Gaussian </p>
-                        <input type="radio" name="choAF" value="Gaussian" id="Gaussian" class="radio"
-                            onchange="start()">
-                        <div class="afNumb">
-                            <p>ISRU, α =</p>
-                            <input type="number" id="alphaISRU" min="-10" max="10" step="1" value="1"
-                                onchange="start()">
-                        </div>
-                        <input type="radio" name="choAF" value="ISRU" id="ISRU" class="radio" onchange="start()">
-                        <p>ReLU </p>
-                        <input type="radio" name="choAF" value="ReLU" id="ReLU" class="radio" onchange="start()">
-                        <p>GELU </p>
-                        <input type="radio" name="choAF" value="GELU" id="GELU" class="radio" onchange="start()">
-                        <div class="afNumb">
-                            <p>PReLU, α =</p>
-                            <input type="number" id="alphaPReLU" min="-10" max="10" step="1" value="1"
-                                onchange="start()">
-                        </div>
-                        <input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" onchange="start()">
-                        <div class="afNumb">
-                            <p>ELU, α =</p>
-                            <input type="number" id="alphaELU" min="-10" max="10" step="1" value="1" onchange="start()">
-                        </div>
-                        <input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()">
-                        <p>SELU </p>
-                        <input type="radio" name="choAF" value="SELU" id="SELU" class="radio" onchange="start()">
-                        <p>SoftPlus </p>
-                        <input type="radio" name="choAF" value="SoftPlus" id="SoftPlus" class="radio"
-                            onchange="start()">
-                        <p>Mish </p>
-                        <input type="radio" name="choAF" value="Mish" id="Mish" class="radio" onchange="start()">
-                        <p>SQNL </p>
-                        <input type="radio" name="choAF" value="SQNL" id="SQNL" class="radio" onchange="start()">
-                        <p>BentIdentity </p>
-                        <input type="radio" name="choAF" value="BentIdentity" id="BentIdentity" class="radio"
-                            onchange="start()">
-                        <p>Swish1 </p>
-                        <input type="radio" name="choAF" value="Swish1" id="Swish1" class="radio" onchange="start()">
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </aside>
-    <canvas id="Canvas"></canvas>
-    <canvas id="Network"></canvas>
-</body>
-
+	<body>
+		<nav class="nav-main">
+			<div class="toggle-nav" onclick="toggleSettings()"></div>
+			<ul class="top-nav">
+				<li>
+					<a onclick="refresh()"><i class="fa-sharp fa-solid fa-house fa-2x fa-fw"></i></a>
+				</li>
+				<li>
+					<a herf="#"><i class="fa-sharp fa-solid fa-file-powerpoint fa-2x fa-fw"></i></a>
+				</li>
+				<li>
+					<a onclick="saveNetwork()"><i class="fa-sharp fa-solid fa-floppy-disk fa-2x fa-fw"></i> Network </a>
+				</li>
+				<li>
+					<a onclick="deleteNetwork()"><i class="fa-sharp fa-solid fa-trash fa-2x fa-fw"></i> Network </a>
+				</li>
+				<li>
+					<a onclick="saveSettings()"><i class="fa-sharp fa-solid fa-floppy-disk fa-2x fa-fw"></i> Settings </a>
+				</li>
+				<li>
+					<a onclick="loadSettings()"><i class="fa-sharp fa-solid fa-upload fa-2x fa-fw"></i> Settings </a>
+				</li>
+				<li>
+					<a onclick="deleteSettings()"><i class="fa-sharp fa-solid fa-trash fa-2x fa-fw"></i> Settings </a>
+				</li>
+			</ul>
+		</nav>
+		<aside id="side-nav" class="side-nav">
+			<ul id="side-nav-content" class="side-nav-content">
+				<li>
+					<span class="title"> <i class="fa-solid fa-cog fa-spin fa-2x fa-fw"></i>Settings</span>
+				</li>
+				<li>
+					<label for="first"><i class="fa-solid fa-car-side fa-2x fa-fw fa-flip" style="--fa-animation-duration: 6s"></i> Car </label>
+					<input type="radio" name="accordion" id="first" checked />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>Starting Lane ... <span id="sLane"></span></p>
+						<input class="slider" type="range" min="0" max="10" value="1" id="SLane" onchange="start()" />
+						<p>Width ... <span id="width"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="30" id="Width" onchange="start()" />
+						<p>Height ... <span id="height"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="50" id="Height" onchange="start()" />
+						<p>Max Speed ... <span id="maxSpeed"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="3" id="MaxSpeed" onchange="start()" />
+						<p>Acceleration ... <span id="acceleration"></span></p>
+						<input class="slider" type="range" min="0.1" max="10" value="0.2" step="0.1" id="Acceleration" onchange="start()" />
+						<p>Friction ... <span id="friction"></span></p>
+						<input class="slider" type="range" min="0.01" max="1" value="0.05" step="0.01" id="Friction" onchange="start()" />
+						<p>Active Sensors ... <span id="aSensor"></span></p>
+						<input class="slider" type="range" min="1" max="20" value="10" id="ASensor" onchange="start()" />
+						<p>Sensor Length ... <span id="sLength"></span></p>
+						<input class="slider" type="range" min="1" max="300" value="120" id="SLength" onchange="start()" />
+						<p>Sensor Spread ... <span id="sSpread"></span></p>
+						<input class="slider" type="range" min="0.01" max="5" value="2.5" step="0.01" id="SSpread" onchange="start()" />
+					</div>
+				</li>
+				<li>
+					<label for="forth"><i class="fa-solid fa-shapes fa-2x fa-fw fa-flip" style="--fa-animation-duration: 9s"></i> Car Shape</label>
+					<input type="radio" name="accordion" id="forth" />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>A point... <span id="a"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="A" onchange="start()" />
+						<p>B point... <span id="b"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="B" onchange="start()" />
+						<p>C point... <span id="c"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="C" onchange="start()" />
+						<p>D point... <span id="d"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="D" onchange="start()" />
+						<p>E point... <span id="e"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="E" onchange="start()" />
+						<p>F point... <span id="f"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="F" onchange="start()" />
+						<p>G point... <span id="g"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="G" onchange="start()" />
+						<p>H point... <span id="h"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="H" onchange="start()" />
+					</div>
+				</li>
+				<li>
+					<label for="second"><i class="fa-sharp fa-solid fa-road fa-2x fa-fw fa-flip" style="--fa-animation-duration: 5s"></i> Path</label>
+					<input type="radio" name="accordion" id="second" />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>Lanes ... <span id="lanes"></span></p>
+						<input class="slider" type="range" min="1" max="10" value="4" id="Lanes" onchange="start()" />
+						<div class="waysContainer">
+							<p>One Way</p>
+							<input type="radio" name="trafficWay" id="oneWay" class="radio" checked onchange="start()" />
+							<p>Two Way</p>
+							<input type="radio" name="trafficWay" id="twoWay" class="radio" onchange="start()" />
+							<p>Wrong Way</p>
+							<input type="radio" name="trafficWay" id="wrongWay" class="radio" onchange="start()" />
+						</div>
+						<div class="waysContainer">
+							<p>You control</p>
+							<input type="radio" name="controls" id="you" class="radio" onchange="start()" />
+							<p>AI controls</p>
+							<input type="radio" name="controls" id="AI" class="radio" checked onchange="start()" />
+						</div>
+					</div>
+				</li>
+				<li>
+					<label for="third"><i class="fa-solid fa-traffic-light fa-2x fa-fw fa-flip" style="--fa-animation-duration: 7s"></i> Traffic</label>
+					<input type="radio" name="accordion" id="third" />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>Width ... <span id="twidth"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="30" id="TWidth" onchange="start()" />
+						<p>Height ... <span id="theight"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="50" id="THeight" onchange="start()" />
+						<p>Max Speed ... <span id="tmaxSpeed"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="1" id="TMaxSpeed" onchange="start()" />
+						<p>Acceleration ... <span id="tacceleration"></span></p>
+						<input class="slider" type="range" min="0.1" max="10" value="0.2" step="0.1" id="TAcceleration" onchange="start()" />
+						<p>Friction ... <span id="tfriction"></span></p>
+						<input class="slider" type="range" min="0.01" max="1" value="0.05" step="0.01" id="TFriction" onchange="start()" />
+						<p>Number of Traffic Cars ... <span id="nforTraffic"></span></p>
+						<input class="slider" type="range" min="1" max="100" value="20" id="NforTraffic" onchange="start()" />
+						<div class="waysContainer">
+							<p>Predetermine Traffic</p>
+							<input type="radio" name="SetOrRandom" id="Set" class="radio" checked onchange="start()" />
+							<p>Random Traffic</p>
+							<input type="radio" name="SetOrRandom" id="Random" class="radio" onchange="start()" />
+						</div>
+					</div>
+				</li>
+				<li>
+					<label for="fifth"><i class="fa-solid fa-shapes fa-2x fa-fw fa-flip" style="--fa-animation-duration: 5s"></i> Traffic Car Shape</label>
+					<input type="radio" name="accordion" id="fifth" />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>A point... <span id="ta"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TA" onchange="start()" />
+						<p>B point... <span id="tb"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TB" onchange="start()" />
+						<p>C point... <span id="tc"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TC" onchange="start()" />
+						<p>D point... <span id="td"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TD" onchange="start()" />
+						<p>E point... <span id="te"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TE" onchange="start()" />
+						<p>F point... <span id="tf"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TF" onchange="start()" />
+						<p>G point... <span id="tg"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TG" onchange="start()" />
+						<p>H point... <span id="th"></span></p>
+						<input class="slider" type="range" min="0.1" max="3" value="1" step="0.1" id="TH" onchange="start()" />
+					</div>
+				</li>
+				<li>
+					<label for="sixth"><i class="fa-sharp fa-solid fa-brain fa-2x fa-fw fa-flip" style="--fa-animation-duration: 6s"></i> Intelegencia</label>
+					<input type="radio" name="accordion" id="sixth" />
+					<div id="sliderContainer" class="sliderContainer">
+						<p>Second Layer nodes ... <span id="2nodes"></span></p>
+						<input class="slider" type="range" min="1" max="20" value="6" id="2Nodes" onchange="start()" />
+						<p>Third Layer nodes ... <span id="3nodes"></span></p>
+						<input class="slider" type="range" min="1" max="20" value="6" id="3Nodes" onchange="start()" />
+						<p>Number of Smart Cars ... <span id="nforCars"></span></p>
+						<input class="slider" type="range" min="1" max="1000" value="100" id="NforCars" onchange="start()" />
+						<p>Mutation amount ... <span id="mutate"></span></p>
+						<input class="slider" type="range" min="0.1" max="1" value="0.1" step="0.1" id="Mutate" onchange="start()" />
+					</div>
+				</li>
+				<li>
+					<label for="seventh"><i class="fa-sharp fa-solid fa-section fa-2x fa-fw fa-flip" style="--fa-animation-duration: 7s"></i>Choose Activation Function</label>
+					<input type="radio" name="accordion" id="seventh" />
+					<div id="sliderContainer" class="sliderContainer">
+						<div class="waysContainerR" id="allRadio">
+							<p>Identity</p>
+							<input type="radio" name="choAF" value="Identity" id="Identity" class="radio" onchange="start()" />
+							<p>Inverse</p>
+							<input type="radio" name="choAF" value="Inverse" id="Inverse" class="radio" onchange="start()" />
+							<p>BinaryStep</p>
+							<input type="radio" name="choAF" value="BinaryStep" id="BinaryStep" class="radio" onchange="start()" />
+							<p>Bipolar</p>
+							<input type="radio" name="choAF" value="Bipolar" id="Bipolar" class="radio" onchange="start()" />
+							<p>Tanh</p>
+							<input type="radio" name="choAF" value="Tanh" id="Tanh" class="radio" onchange="start()" />
+							<p>HardTanh</p>
+							<input type="radio" name="choAF" value="HardTanh" id="HardTanh" class="radio" onchange="start()" />
+							<p>ArcTan</p>
+							<input type="radio" name="choAF" value="ArcTan" id="ArcTan" class="radio" onchange="start()" />
+							<p>SoftSign</p>
+							<input type="radio" name="choAF" value="SoftSign" id="SoftSign" class="radio" onchange="start()" />
+							<p>Erf</p>
+							<input type="radio" name="choAF" value="Erf" id="Erf" class="radio" onchange="start()" />
+							<p>Sinc</p>
+							<input type="radio" name="choAF" value="Sinc" id="Sinc" class="radio" onchange="start()" />
+							<p>Sinusoid</p>
+							<input type="radio" name="choAF" value="Sinusoid" id="Sinusoid" class="radio" onchange="start()" />
+							<p>Sigmoid</p>
+							<input type="radio" name="choAF" value="Sigmoid" id="Sigmoid" class="radio" checked onchange="start()" />
+							<p>BipolarSigmoid</p>
+							<input type="radio" name="choAF" value="BipolarSigmoid" id="BipolarSigmoid" class="radio" onchange="start()" />
+							<p>Gaussian</p>
+							<input type="radio" name="choAF" value="Gaussian" id="Gaussian" class="radio" onchange="start()" />
+							<div class="afNumb">
+								<p>ISRU, α =</p>
+								<input type="number" id="alphaISRU" min="-10" max="10" step="1" value="1" onchange="start()" />
+							</div>
+							<input type="radio" name="choAF" value="ISRU" id="ISRU" class="radio" onchange="start()" />
+							<p>ReLU</p>
+							<input type="radio" name="choAF" value="ReLU" id="ReLU" class="radio" onchange="start()" />
+							<p>GELU</p>
+							<input type="radio" name="choAF" value="GELU" id="GELU" class="radio" onchange="start()" />
+							<div class="afNumb">
+								<p>PReLU, α =</p>
+								<input type="number" id="alphaPReLU" min="-10" max="10" step="1" value="1" onchange="start()" />
+							</div>
+							<input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" onchange="start()" />
+							<div class="afNumb">
+								<p>ELU, α =</p>
+								<input type="number" id="alphaELU" min="-10" max="10" step="1" value="1" onchange="start()" />
+							</div>
+							<input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()" />
+							<p>SELU</p>
+							<input type="radio" name="choAF" value="SELU" id="SELU" class="radio" onchange="start()" />
+							<p>SoftPlus</p>
+							<input type="radio" name="choAF" value="SoftPlus" id="SoftPlus" class="radio" onchange="start()" />
+							<p>Mish</p>
+							<input type="radio" name="choAF" value="Mish" id="Mish" class="radio" onchange="start()" />
+							<p>SQNL</p>
+							<input type="radio" name="choAF" value="SQNL" id="SQNL" class="radio" onchange="start()" />
+							<p>BentIdentity</p>
+							<input type="radio" name="choAF" value="BentIdentity" id="BentIdentity" class="radio" onchange="start()" />
+							<p>Swish1</p>
+							<input type="radio" name="choAF" value="Swish1" id="Swish1" class="radio" onchange="start()" />
+						</div>
+					</div>
+				</li>
+			</ul>
+		</aside>
+		<canvas id="Canvas"></canvas>
+		<canvas id="Network"></canvas>
+	</body>
 </html>

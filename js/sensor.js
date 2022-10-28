@@ -41,12 +41,7 @@ class Sensor {
 	#getHits(rays, borders, traffic) {
 		let collisions = [];
 		for (let i = 0; i < borders.length; i++) {
-			const collision = getIntersection(
-				rays[0],
-				rays[1],
-				borders[i][0],
-				borders[i][1]
-			);
+			const collision = getIntersection(rays[0], rays[1], borders[i][0], borders[i][1]);
 			if (collision) {
 				collisions.push(collision);
 			}
@@ -54,12 +49,7 @@ class Sensor {
 		for (let i = 0; i < traffic.length; i++) {
 			const shape = traffic[i].shape;
 			for (let j = 0; j < shape.length; j++) {
-				const collision = getIntersection(
-					rays[0],
-					rays[1],
-					shape[j],
-					shape[(j + 1) % shape.length]
-				);
+				const collision = getIntersection(rays[0], rays[1], shape[j], shape[(j + 1) % shape.length]);
 				if (collision) {
 					collisions.push(collision);
 				}
@@ -77,12 +67,7 @@ class Sensor {
 	#activateSensor() {
 		this.rays = [];
 		for (let i = 0; i < this.rayCount; i++) {
-			const rayAngle =
-				lerp(
-					this.raySpread / 2,
-					-this.raySpread / 2,
-					this.rayCount == 1 ? 0.5 : i / (this.rayCount - 1)
-				) + this.smartCar.angle;
+			const rayAngle = lerp(this.raySpread / 2, -this.raySpread / 2, this.rayCount == 1 ? 0.5 : i / (this.rayCount - 1)) + this.smartCar.angle;
 			const start = { x: this.smartCar.X, y: this.smartCar.Y };
 			const end = {
 				x: this.smartCar.X - Math.sin(rayAngle) * this.rayLength,

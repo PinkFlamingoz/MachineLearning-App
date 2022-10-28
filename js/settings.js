@@ -283,15 +283,7 @@ Mutate.oninput = function () {
 
 function sliderChange(htmlElement, htmlElementVal) {
 	htmlElementVal.innerHTML = htmlElement.value;
-	let x =
-		((htmlElement.value - htmlElement.min) /
-			(htmlElement.max - htmlElement.min)) *
-		100;
-	var color =
-		'linear-gradient(90deg,rgb(117, 252, 117)' +
-		x +
-		'%,rgb(214, 214, 214)' +
-		x +
-		'%)';
+	let x = ((htmlElement.value - htmlElement.min) / (htmlElement.max - htmlElement.min)) * 100;
+	var color = 'linear-gradient(90deg,rgb(117, 252, 117)' + x + '%,rgb(214, 214, 214)' + x + '%)';
 	htmlElement.style.background = color;
 }

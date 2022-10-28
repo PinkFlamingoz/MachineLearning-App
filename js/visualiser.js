@@ -7,23 +7,9 @@ class Visualiser {
 		const height = netBrush.canvas.height - margin * 2;
 		const layerHight = height / network.layers.length;
 		for (let i = network.layers.length - 1; i >= 0; i--) {
-			const layerTop =
-				top +
-				lerp(
-					height - layerHight,
-					0,
-					network.layers.length == 1 ? 0.5 : i / (network.layers.length - 1)
-				);
+			const layerTop = top + lerp(height - layerHight, 0, network.layers.length == 1 ? 0.5 : i / (network.layers.length - 1));
 			netBrush.setLineDash([10, 4]);
-			Visualiser.drawLayer(
-				netBrush,
-				network.layers[i],
-				left,
-				layerTop,
-				width,
-				layerHight,
-				i == network.layers.length - 1 ? ['🠊', '🠈', '🠉', '🠋'] : []
-			);
+			Visualiser.drawLayer(netBrush, network.layers[i], left, layerTop, width, layerHight, i == network.layers.length - 1 ? ['🠊', '🠈', '🠉', '🠋'] : []);
 		}
 	}
 	static drawLayer(netBrush, layer, left, top, width, height, seeControls) {
@@ -83,11 +69,7 @@ class Visualiser {
 		}
 	}
 	static #getNodeVal(nodes, index, left, right) {
-		return lerp(
-			left,
-			right,
-			nodes.length == 1 ? 0.5 : index / (nodes.length - 1)
-		);
+		return lerp(left, right, nodes.length == 1 ? 0.5 : index / (nodes.length - 1));
 	}
 }
 function getRGBA(value) {

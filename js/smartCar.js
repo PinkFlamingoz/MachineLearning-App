@@ -30,20 +30,10 @@ class SmartCar {
 		this.color = color;
 		if (TYPE == 'Smart') {
 			this.sensor = sensor;
-			this.Inteligencia = new NeuralNetwork([
-				this.sensor.rayCount,
-				SNode,
-				TNode,
-				4,
-			]);
+			this.Inteligencia = new NeuralNetwork([this.sensor.rayCount, SNode, TNode, 4]);
 		} else if (TYPE == 'YouDrive') {
 			this.sensor = sensor;
-			this.Inteligencia = new NeuralNetwork([
-				this.sensor.rayCount,
-				SNode,
-				TNode,
-				4,
-			]);
+			this.Inteligencia = new NeuralNetwork([this.sensor.rayCount, SNode, TNode, 4]);
 		}
 		this.angle = 0;
 		this.isHit = false;
@@ -57,9 +47,7 @@ class SmartCar {
 		}
 		if (this.sensor) {
 			this.sensor.update(borders, traffic);
-			const offsets = this.sensor.hits.map((s) =>
-				s == null ? 0 : 1 - s.offset
-			);
+			const offsets = this.sensor.hits.map((s) => (s == null ? 0 : 1 - s.offset));
 			const outputs = NeuralNetwork.feedForward(offsets, this.Inteligencia);
 			if (this.TYPE == 'Smart') {
 				//console.log(outputs);
@@ -165,12 +153,7 @@ class SmartCar {
 function shapesIntersect(shape1, shape2) {
 	for (let i = 0; i < shape1.length; i++) {
 		for (let j = 0; j < shape2.length; j++) {
-			const hit = getIntersection(
-				shape1[i],
-				shape1[(i + 1) % shape1.length],
-				shape2[j],
-				shape2[(j + 1) % shape2.length]
-			);
+			const hit = getIntersection(shape1[i], shape1[(i + 1) % shape1.length], shape2[j], shape2[(j + 1) % shape2.length]);
 			if (hit) {
 				return true;
 			}

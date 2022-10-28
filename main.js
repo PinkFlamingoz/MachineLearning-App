@@ -160,156 +160,84 @@ function deleteSettings() {
 }
 
 function loadSettings() {
-	document.getElementById('SLane').valueAsNumber = JSON.parse(
-		localStorage.getItem('1')
-	);
+	document.getElementById('SLane').valueAsNumber = JSON.parse(localStorage.getItem('1'));
 	sliderChange(sLane, sLaneVal);
-	document.getElementById('Width').valueAsNumber = JSON.parse(
-		localStorage.getItem('2')
-	);
+	document.getElementById('Width').valueAsNumber = JSON.parse(localStorage.getItem('2'));
 	sliderChange(width, widthVal);
-	document.getElementById('Height').valueAsNumber = JSON.parse(
-		localStorage.getItem('3')
-	);
+	document.getElementById('Height').valueAsNumber = JSON.parse(localStorage.getItem('3'));
 	sliderChange(height, heightVal);
-	document.getElementById('MaxSpeed').valueAsNumber = JSON.parse(
-		localStorage.getItem('4')
-	);
+	document.getElementById('MaxSpeed').valueAsNumber = JSON.parse(localStorage.getItem('4'));
 	sliderChange(maxSpeed, maxSpeedVal);
-	document.getElementById('Acceleration').valueAsNumber = JSON.parse(
-		localStorage.getItem('5')
-	);
+	document.getElementById('Acceleration').valueAsNumber = JSON.parse(localStorage.getItem('5'));
 	sliderChange(acceleration, accelerationVal);
-	document.getElementById('Friction').valueAsNumber = JSON.parse(
-		localStorage.getItem('6')
-	);
+	document.getElementById('Friction').valueAsNumber = JSON.parse(localStorage.getItem('6'));
 	sliderChange(friction, frictionVal);
-	document.getElementById('ASensor').valueAsNumber = JSON.parse(
-		localStorage.getItem('7')
-	);
+	document.getElementById('ASensor').valueAsNumber = JSON.parse(localStorage.getItem('7'));
 	sliderChange(aSensor, aSensorVal);
-	document.getElementById('SLength').valueAsNumber = JSON.parse(
-		localStorage.getItem('8')
-	);
+	document.getElementById('SLength').valueAsNumber = JSON.parse(localStorage.getItem('8'));
 	sliderChange(sLength, sLengthVal);
-	document.getElementById('SSpread').valueAsNumber = JSON.parse(
-		localStorage.getItem('9')
-	);
+	document.getElementById('SSpread').valueAsNumber = JSON.parse(localStorage.getItem('9'));
 	sliderChange(sSpread, sSpreadVal);
-	document.getElementById('A').valueAsNumber = JSON.parse(
-		localStorage.getItem('10')
-	);
+	document.getElementById('A').valueAsNumber = JSON.parse(localStorage.getItem('10'));
 	sliderChange(A, a);
-	document.getElementById('B').valueAsNumber = JSON.parse(
-		localStorage.getItem('11')
-	);
+	document.getElementById('B').valueAsNumber = JSON.parse(localStorage.getItem('11'));
 	sliderChange(B, b);
-	document.getElementById('C').valueAsNumber = JSON.parse(
-		localStorage.getItem('12')
-	);
+	document.getElementById('C').valueAsNumber = JSON.parse(localStorage.getItem('12'));
 	sliderChange(C, c);
-	document.getElementById('D').valueAsNumber = JSON.parse(
-		localStorage.getItem('13')
-	);
+	document.getElementById('D').valueAsNumber = JSON.parse(localStorage.getItem('13'));
 	sliderChange(D, d);
-	document.getElementById('E').valueAsNumber = JSON.parse(
-		localStorage.getItem('14')
-	);
+	document.getElementById('E').valueAsNumber = JSON.parse(localStorage.getItem('14'));
 	sliderChange(E, e);
-	document.getElementById('F').valueAsNumber = JSON.parse(
-		localStorage.getItem('15')
-	);
+	document.getElementById('F').valueAsNumber = JSON.parse(localStorage.getItem('15'));
 	sliderChange(F, f);
-	document.getElementById('G').valueAsNumber = JSON.parse(
-		localStorage.getItem('16')
-	);
+	document.getElementById('G').valueAsNumber = JSON.parse(localStorage.getItem('16'));
 	sliderChange(G, g);
-	document.getElementById('H').valueAsNumber = JSON.parse(
-		localStorage.getItem('17')
-	);
+	document.getElementById('H').valueAsNumber = JSON.parse(localStorage.getItem('17'));
 	sliderChange(H, h);
-	document.getElementById('Lanes').valueAsNumber = JSON.parse(
-		localStorage.getItem('18')
-	);
+	document.getElementById('Lanes').valueAsNumber = JSON.parse(localStorage.getItem('18'));
 	sliderChange(lanes, lanesVal);
 	oneWay.checked = JSON.parse(localStorage.getItem('19'));
 	twoWay.checked = JSON.parse(localStorage.getItem('20'));
 	wrongWay.checked = JSON.parse(localStorage.getItem('21'));
 	you.checked = JSON.parse(localStorage.getItem('22'));
 	AI.checked = JSON.parse(localStorage.getItem('23'));
-	document.getElementById('TWidth').valueAsNumber = JSON.parse(
-		localStorage.getItem('24')
-	);
+	document.getElementById('TWidth').valueAsNumber = JSON.parse(localStorage.getItem('24'));
 	sliderChange(Twidth, twidthVal);
-	document.getElementById('THeight').valueAsNumber = JSON.parse(
-		localStorage.getItem('25')
-	);
+	document.getElementById('THeight').valueAsNumber = JSON.parse(localStorage.getItem('25'));
 	sliderChange(Theight, theightVal);
-	document.getElementById('TMaxSpeed').valueAsNumber = JSON.parse(
-		localStorage.getItem('26')
-	);
+	document.getElementById('TMaxSpeed').valueAsNumber = JSON.parse(localStorage.getItem('26'));
 	sliderChange(TmaxSpeed, tmaxSpeedVal);
-	document.getElementById('TAcceleration').valueAsNumber = JSON.parse(
-		localStorage.getItem('27')
-	);
+	document.getElementById('TAcceleration').valueAsNumber = JSON.parse(localStorage.getItem('27'));
 	sliderChange(Tacceleration, taccelerationVal);
-	document.getElementById('TFriction').valueAsNumber = JSON.parse(
-		localStorage.getItem('28')
-	);
+	document.getElementById('TFriction').valueAsNumber = JSON.parse(localStorage.getItem('28'));
 	sliderChange(Tfriction, tfrictionVal);
-	document.getElementById('NforTraffic').valueAsNumber = JSON.parse(
-		localStorage.getItem('29')
-	);
+	document.getElementById('NforTraffic').valueAsNumber = JSON.parse(localStorage.getItem('29'));
 	sliderChange(NforTraffic, nforTraffic);
 	Random.checked = JSON.parse(localStorage.getItem('30'));
 	Predetermine.checked = JSON.parse(localStorage.getItem('31'));
-	document.getElementById('TA').valueAsNumber = JSON.parse(
-		localStorage.getItem('32')
-	);
+	document.getElementById('TA').valueAsNumber = JSON.parse(localStorage.getItem('32'));
 	sliderChange(TA, ta);
-	document.getElementById('TB').valueAsNumber = JSON.parse(
-		localStorage.getItem('33')
-	);
+	document.getElementById('TB').valueAsNumber = JSON.parse(localStorage.getItem('33'));
 	sliderChange(TB, tb);
-	document.getElementById('TC').valueAsNumber = JSON.parse(
-		localStorage.getItem('34')
-	);
+	document.getElementById('TC').valueAsNumber = JSON.parse(localStorage.getItem('34'));
 	sliderChange(TC, tc);
-	document.getElementById('TD').valueAsNumber = JSON.parse(
-		localStorage.getItem('35')
-	);
+	document.getElementById('TD').valueAsNumber = JSON.parse(localStorage.getItem('35'));
 	sliderChange(TD, td);
-	document.getElementById('TE').valueAsNumber = JSON.parse(
-		localStorage.getItem('36')
-	);
+	document.getElementById('TE').valueAsNumber = JSON.parse(localStorage.getItem('36'));
 	sliderChange(TE, te);
-	document.getElementById('TF').valueAsNumber = JSON.parse(
-		localStorage.getItem('37')
-	);
+	document.getElementById('TF').valueAsNumber = JSON.parse(localStorage.getItem('37'));
 	sliderChange(TF, tf);
-	document.getElementById('TG').valueAsNumber = JSON.parse(
-		localStorage.getItem('38')
-	);
+	document.getElementById('TG').valueAsNumber = JSON.parse(localStorage.getItem('38'));
 	sliderChange(TG, tg);
-	document.getElementById('TH').valueAsNumber = JSON.parse(
-		localStorage.getItem('39')
-	);
+	document.getElementById('TH').valueAsNumber = JSON.parse(localStorage.getItem('39'));
 	sliderChange(TH, th);
-	document.getElementById('2Nodes').valueAsNumber = JSON.parse(
-		localStorage.getItem('40')
-	);
+	document.getElementById('2Nodes').valueAsNumber = JSON.parse(localStorage.getItem('40'));
 	sliderChange(SNode, Snode);
-	document.getElementById('3Nodes').valueAsNumber = JSON.parse(
-		localStorage.getItem('41')
-	);
+	document.getElementById('3Nodes').valueAsNumber = JSON.parse(localStorage.getItem('41'));
 	sliderChange(TNode, Tnode);
-	document.getElementById('NforCars').valueAsNumber = JSON.parse(
-		localStorage.getItem('42')
-	);
+	document.getElementById('NforCars').valueAsNumber = JSON.parse(localStorage.getItem('42'));
 	sliderChange(NforCars, nforCars);
-	document.getElementById('Mutate').valueAsNumber = JSON.parse(
-		localStorage.getItem('43')
-	);
+	document.getElementById('Mutate').valueAsNumber = JSON.parse(localStorage.getItem('43'));
 	sliderChange(Mutate, mutate);
 	Identity.checked = JSON.parse(localStorage.getItem('44'));
 	Inverse.checked = JSON.parse(localStorage.getItem('45'));
@@ -336,16 +264,27 @@ function loadSettings() {
 	SQNLaf.checked = JSON.parse(localStorage.getItem('66'));
 	BentIdentity.checked = JSON.parse(localStorage.getItem('67'));
 	Swish1.checked = JSON.parse(localStorage.getItem('68'));
-	document.getElementById('alphaISRU').valueAsNumber = JSON.parse(
-		localStorage.getItem('69')
-	);
-	document.getElementById('alphaPReLU').valueAsNumber = JSON.parse(
-		localStorage.getItem('70')
-	);
-	document.getElementById('alphaELU').valueAsNumber = JSON.parse(
-		localStorage.getItem('71')
-	);
+	document.getElementById('alphaISRU').valueAsNumber = JSON.parse(localStorage.getItem('69'));
+	document.getElementById('alphaPReLU').valueAsNumber = JSON.parse(localStorage.getItem('70'));
+	document.getElementById('alphaELU').valueAsNumber = JSON.parse(localStorage.getItem('71'));
 	start();
+}
+
+function getRandomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateColorCode() {
+	var makingColorCode = '0123456789ABCDEF';
+	var finalCode = '#';
+	for (var counter = 0; counter < 6; counter++) {
+		finalCode = finalCode + makingColorCode[Math.floor(Math.random() * 16)];
+	}
+	return finalCode;
+}
+
+function refresh() {
+	window.location.reload();
 }
 
 let getStartLane;
@@ -422,10 +361,6 @@ let alphaELU;
 let valueStr;
 
 start();
-
-function refresh() {
-	window.location.reload();
-}
 
 function start() {
 	Identity = document.getElementById('Identity');
@@ -575,11 +510,7 @@ function start() {
 	if (twoWay.checked) {
 		twoWayBool = true;
 		if (!Random.checked) {
-			alert(
-				'Random traffic must be selected!' +
-					'\n' +
-					'Also have the starting lane at one of the lanes that goes forward!'
-			);
+			alert('Random traffic must be selected!' + '\n' + 'Also have the starting lane at one of the lanes that goes forward!');
 		}
 	} else {
 		twoWayBool = false;
@@ -592,234 +523,28 @@ function start() {
 	getNetworkEl.width = 800;
 	const netBrush = getNetworkEl.getContext('2d');
 
-	const path = new Path(
-		getCanvasEl.width / 2,
-		getCanvasEl.height / 2,
-		getCanvasEl.height * 0.9,
-		getCanvasEl.width * 0.9,
-		getLanes
-	);
+	const path = new Path(getCanvasEl.width / 2, getCanvasEl.height / 2, getCanvasEl.height * 0.9, getCanvasEl.width * 0.9, getLanes);
 	const nrTraffic = [
-		new SmartCar(
-			path.getLaneCenter(0),
-			-100,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-300,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-500,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(3),
-			-700,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(0),
-			-900,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-800,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-1100,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(3),
-			-1200,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-1500,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-1600,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(0),
-			-1800,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-2200,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-2000,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-2400,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(3),
-			-2700,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-2900,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(0),
-			-3000,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(2),
-			-3200,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(1),
-			-3300,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
-		new SmartCar(
-			path.getLaneCenter(3),
-			-3500,
-			getWidthT,
-			getHeightT,
-			getMaxSpeedT,
-			getAccelerationT,
-			getFrictionT,
-			'Traffic',
-			generateColorCode()
-		),
+		new SmartCar(path.getLaneCenter(0), -100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(3), -700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(0), -900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -1100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(3), -1200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -1500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -1600, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(0), -1800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -2200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -2000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -2400, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(3), -2700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -2900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(0), -3000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(2), -3200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(1), -3300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(3), -3500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
 	];
 	const cars = generateCars(NforCarsSet);
 	let traffic = [];
@@ -860,18 +585,7 @@ function start() {
 					traffic[i].update(path.borders, AT, BT, CT, DT, ET, FT, GT, HT, []);
 				}
 				for (let i = 0; i < cars.length; i++) {
-					cars[i].update(
-						path.borders,
-						Aset,
-						Bset,
-						Cset,
-						Dset,
-						Eset,
-						Fset,
-						Gset,
-						Hset,
-						traffic
-					);
+					cars[i].update(path.borders, Aset, Bset, Cset, Dset, Eset, Fset, Gset, Hset, traffic);
 				}
 				break;
 			case (random = false):
@@ -879,18 +593,7 @@ function start() {
 					nrTraffic[i].update(path.borders, AT, BT, CT, DT, ET, FT, GT, HT, []);
 				}
 				for (let i = 0; i < cars.length; i++) {
-					cars[i].update(
-						path.borders,
-						Aset,
-						Bset,
-						Cset,
-						Dset,
-						Eset,
-						Fset,
-						Gset,
-						Hset,
-						nrTraffic
-					);
+					cars[i].update(path.borders, Aset, Bset, Cset, Dset, Eset, Fset, Gset, Hset, nrTraffic);
 				}
 				break;
 		}
@@ -924,19 +627,7 @@ function start() {
 	function generateCars(NforCars) {
 		const cars = [];
 		for (let i = 0; i < NforCars; i++) {
-			cars.push(
-				new SmartCar(
-					path.getLaneCenter(getStartLane),
-					100,
-					getWidth,
-					getHeight,
-					getMaxSpeed,
-					getAcceleration,
-					getFriction,
-					this.type,
-					'purple'
-				)
-			);
+			cars.push(new SmartCar(path.getLaneCenter(getStartLane), 100, getWidth, getHeight, getMaxSpeed, getAcceleration, getFriction, this.type, 'purple'));
 		}
 		return cars;
 	}
@@ -964,9 +655,7 @@ function start() {
 		for (let i = 0; i < NforTraffic; i++) {
 			traffic.push(
 				new SmartCar(
-					path.getLaneCenter(
-						getRandomInteger(Math.round(getLanes / 2), getLanes)
-					),
+					path.getLaneCenter(getRandomInteger(Math.round(getLanes / 2), getLanes)),
 					getRandomInteger(-1000, 1000),
 					getWidthT,
 					getHeightT,
@@ -992,18 +681,5 @@ function start() {
 			);
 		}
 		return traffic;
-	}
-
-	function getRandomInteger(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-
-	function generateColorCode() {
-		var makingColorCode = '0123456789ABCDEF';
-		var finalCode = '#';
-		for (var counter = 0; counter < 6; counter++) {
-			finalCode = finalCode + makingColorCode[Math.floor(Math.random() * 16)];
-		}
-		return finalCode;
 	}
 }

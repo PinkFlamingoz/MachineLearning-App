@@ -6,7 +6,7 @@ let toggleSettings = function () {
 	let getSliderCon = document.querySelectorAll('.sliderContainer');
 
 	if (!toggleSettingsValue) {
-		getSideNav.style.width = '334px';
+		getSideNav.style.width = '333px';
 		getSideNavContent.style.visibility = 'visible';
 		for (let i = 0; i < getSideNavTitle.length; i++) {
 			getSideNavTitle[i].style.opacity = '1';

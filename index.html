@@ -29,9 +29,8 @@
     <nav class="nav-main">
         <div class="toggle-nav" onclick="toggleSettings()"></div>
         <ul class="top-nav">
-            <li><a onclick="start()">Home</a> </li>
+            <li><a onclick="refresh()">Home</a> </li>
             <li><a herf="#">About</a> </li>
-            <li><a herf="#">Links</a> </li>
             <li><a onclick="saveNetwork()">Save Network</a> </li>
             <li><a onclick="deleteNetwork()">Delete Network </a></li>
             <li><a onclick="saveSettings()">Save Settings </a></li>
@@ -176,6 +175,84 @@
                     <p>Mutation amount ... <span id="mutate"></span> </p>
                     <input class="slider" type="range" min="0.1" max="1" value="0.1" step="0.1" id="Mutate"
                         onchange="start()">
+                </div>
+            </li>
+            <li><label for="seventh">Choose Activation Function</label>
+                <input type="radio" name="accordion" id="seventh">
+                <div id="sliderContainer" class="sliderContainer">
+                    <div class="waysContainerR" id="allRadio">
+                        <p>Identity </p>
+                        <input type="radio" name="choAF" value="Identity" id="Identity" class="radio"
+                            onchange="start()">
+                        <p>Inverse </p>
+                        <input type="radio" name="choAF" value="Inverse" id="Inverse" class="radio" onchange="start()">
+                        <p>BinaryStep </p>
+                        <input type="radio" name="choAF" value="BinaryStep" id="BinaryStep" class="radio"
+                            onchange="start()">
+                        <p>Bipolar </p>
+                        <input type="radio" name="choAF" value="Bipolar" id="Bipolar" class="radio" onchange="start()">
+                        <p>Tanh </p>
+                        <input type="radio" name="choAF" value="Tanh" id="Tanh" class="radio" onchange="start()">
+                        <p>HardTanh </p>
+                        <input type="radio" name="choAF" value="HardTanh" id="HardTanh" class="radio"
+                            onchange="start()">
+                        <p>ArcTan </p>
+                        <input type="radio" name="choAF" value="ArcTan" id="ArcTan" class="radio" onchange="start()">
+                        <p>SoftSign </p>
+                        <input type="radio" name="choAF" value="SoftSign" id="SoftSign" class="radio"
+                            onchange="start()">
+                        <p>Erf </p>
+                        <input type="radio" name="choAF" value="Erf" id="Erf" class="radio" onchange="start()">
+                        <p>Sinc </p>
+                        <input type="radio" name="choAF" value="Sinc" id="Sinc" class="radio" onchange="start()">
+                        <p>Sinusoid </p>
+                        <input type="radio" name="choAF" value="Sinusoid" id="Sinusoid" class="radio"
+                            onchange="start()">
+                        <p>Sigmoid </p>
+                        <input type="radio" name="choAF" value="Sigmoid" id="Sigmoid" class="radio" checked
+                            onchange="start()">
+                        <p>BipolarSigmoid </p>
+                        <input type="radio" name="choAF" value="BipolarSigmoid" id="BipolarSigmoid" class="radio"
+                            onchange="start()">
+                        <p>Gaussian </p>
+                        <input type="radio" name="choAF" value="Gaussian" id="Gaussian" class="radio"
+                            onchange="start()">
+                        <div class="afNumb">
+                            <p>ISRU, α =</p>
+                            <input type="number" id="alphaISRU" min="-10" max="10" step="1" value="1"
+                                onchange="start()">
+                        </div>
+                        <input type="radio" name="choAF" value="ISRU" id="ISRU" class="radio" onchange="start()">
+                        <p>ReLU </p>
+                        <input type="radio" name="choAF" value="ReLU" id="ReLU" class="radio" onchange="start()">
+                        <p>GELU </p>
+                        <input type="radio" name="choAF" value="GELU" id="GELU" class="radio" onchange="start()">
+                        <div class="afNumb">
+                            <p>PReLU, α =</p>
+                            <input type="number" id="alphaPReLU" min="-10" max="10" step="1" value="1"
+                                onchange="start()">
+                        </div>
+                        <input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" onchange="start()">
+                        <div class="afNumb">
+                            <p>ELU, α =</p>
+                            <input type="number" id="alphaELU" min="-10" max="10" step="1" value="1" onchange="start()">
+                        </div>
+                        <input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()">
+                        <p>SELU </p>
+                        <input type="radio" name="choAF" value="SELU" id="SELU" class="radio" onchange="start()">
+                        <p>SoftPlus </p>
+                        <input type="radio" name="choAF" value="SoftPlus" id="SoftPlus" class="radio"
+                            onchange="start()">
+                        <p>Mish </p>
+                        <input type="radio" name="choAF" value="Mish" id="Mish" class="radio" onchange="start()">
+                        <p>SQNL </p>
+                        <input type="radio" name="choAF" value="SQNL" id="SQNL" class="radio" onchange="start()">
+                        <p>BentIdentity </p>
+                        <input type="radio" name="choAF" value="BentIdentity" id="BentIdentity" class="radio"
+                            onchange="start()">
+                        <p>Swish1 </p>
+                        <input type="radio" name="choAF" value="Swish1" id="Swish1" class="radio" onchange="start()">
+                    </div>
                 </div>
             </li>
         </ul>

@@ -107,7 +107,6 @@ body {
 	color: aquamarine;
 }
 .sliderContainer {
-	width: 75%;
 	margin-bottom: 5px;
 	padding: 0 10px;
 	opacity: 0;
@@ -166,13 +165,32 @@ body {
 	--radio: #87ceeb;
 	--radio-checked: aquamarine;
 	--radio-size: 25px;
-	width: 110px;
-	height: 110px;
+	width: auto;
+	height: auto;
 	box-shadow: 0 10px 30px rgba(#414856, 0.05);
 	padding: 10px 10px;
 	display: grid;
 	grid-template-columns: auto var(--radio-size);
 	align-items: center;
+}
+.waysContainerR {
+	--radio: #87ceeb;
+	--radio-checked: aquamarine;
+	--radio-size: 25px;
+	width: auto;
+	height: 555px;
+	box-shadow: 0 10px 30px rgba(#414856, 0.05);
+	padding: 10px 10px;
+	display: grid;
+	grid-auto-flow: row;
+	overflow-y: scroll;
+	grid-template-columns: auto var(--radio-size);
+	align-items: center;
+}
+.afNumb {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 77px 44px;
 }
 .radio {
 	-webkit-appearance: none;

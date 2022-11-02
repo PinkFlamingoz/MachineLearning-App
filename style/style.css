@@ -53,7 +53,7 @@ body {
 	width: 70px;
 }
 .top-nav li a {
-	display: block;
+	display: flex;
 	padding: 0 10px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -131,11 +131,7 @@ body {
 	-webkit-appearance: none;
 	width: 100%;
 	height: 10px;
-	background: linear-gradient(
-		90deg,
-		rgb(214, 214, 214) 60%,
-		rgb(214, 214, 214) 60%
-	);
+	background: linear-gradient(90deg, rgb(214, 214, 214) 60%, rgb(214, 214, 214) 60%);
 	border-radius: 12px;
 	cursor: pointer;
 	outline: none;
@@ -189,7 +185,7 @@ body {
 	--radio-checked: #96f03c;
 	--radio-size: 25px;
 	width: auto;
-	height: 555px;
+	height: 444px;
 	box-shadow: 0 10px 30px rgba(#414856, 0.05);
 	padding: 10px 10px;
 	display: grid;

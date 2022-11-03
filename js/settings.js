@@ -71,6 +71,13 @@ friction.oninput = function () {
 	sliderChange(friction, frictionVal);
 };
 
+let turnRateVal = document.getElementById('turnRate');
+let TurnRate = document.getElementById('TurnRate');
+sliderChange(TurnRate, turnRateVal);
+TurnRate.oninput = function () {
+	sliderChange(TurnRate, turnRateVal);
+};
+
 let aSensorVal = document.getElementById('aSensor');
 let aSensor = document.getElementById('ASensor');
 sliderChange(aSensor, aSensorVal);
@@ -188,6 +195,13 @@ let Tfriction = document.getElementById('TFriction');
 sliderChange(Tfriction, tfrictionVal);
 Tfriction.oninput = function () {
 	sliderChange(Tfriction, tfrictionVal);
+};
+
+let trturnRateVal = document.getElementById('trturnRate');
+let TRTurnRate = document.getElementById('TRTurnRate');
+sliderChange(TRTurnRate, trturnRateVal);
+TRTurnRate.oninput = function () {
+	sliderChange(TRTurnRate, trturnRateVal);
 };
 
 let ta = document.getElementById('ta');

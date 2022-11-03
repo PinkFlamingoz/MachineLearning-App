@@ -9,7 +9,7 @@ class Path {
 		this.right = X + width / 2;
 		this.middleLeft = Y - heigth / 2;
 		this.middleRight = Y + heigth / 2;
-		const infinity = 10000000;
+		const infinity = 10000;
 		this.top = -infinity;
 		this.bottom = infinity;
 		const topLeft = { x: this.left, y: this.top };

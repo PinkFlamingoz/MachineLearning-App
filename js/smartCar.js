@@ -9,6 +9,7 @@ class SmartCar {
 		friction = 0.05,
 		TYPE,
 		color,
+		turnRate = 0.03,
 		getASensor = document.getElementById('ASensor').valueAsNumber,
 		getSLength = document.getElementById('SLength').valueAsNumber,
 		getSSpread = document.getElementById('SSpread').valueAsNumber,
@@ -28,6 +29,7 @@ class SmartCar {
 		this.friction = friction;
 		this.TYPE = TYPE;
 		this.color = color;
+		this.turnRate = turnRate;
 		if (TYPE == 'Smart') {
 			this.sensor = sensor;
 			this.Inteligencia = new NeuralNetwork([this.sensor.rayCount, SNode, TNode, 4]);
@@ -139,10 +141,10 @@ class SmartCar {
 		if (this.speed != 0) {
 			const flip = this.speed > 0 ? 1 : -1;
 			if (this.controls.right) {
-				this.angle -= 0.03 * flip;
+				this.angle -= this.turnRate * flip;
 			}
 			if (this.controls.left) {
-				this.angle += 0.03 * flip;
+				this.angle += this.turnRate * flip;
 			}
 		}
 		this.X -= Math.sin(this.angle) * this.speed;

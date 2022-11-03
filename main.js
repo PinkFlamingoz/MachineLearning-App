@@ -81,6 +81,8 @@ function saveSettings() {
 	localStorage.setItem('69', JSON.stringify(alphaISRU));
 	localStorage.setItem('70', JSON.stringify(alphaPReLU));
 	localStorage.setItem('71', JSON.stringify(alphaELU));
+	localStorage.setItem('72', JSON.stringify(getTurnRate));
+	localStorage.setItem('73', JSON.stringify(getTRTurnRate));
 	alert('Settings Saved!');
 }
 
@@ -156,6 +158,8 @@ function deleteSettings() {
 	localStorage.removeItem('69');
 	localStorage.removeItem('70');
 	localStorage.removeItem('71');
+	localStorage.removeItem('72');
+	localStorage.removeItem('73');
 	alert('Settings Deleted!');
 }
 
@@ -267,6 +271,10 @@ function loadSettings() {
 	document.getElementById('alphaISRU').valueAsNumber = JSON.parse(localStorage.getItem('69'));
 	document.getElementById('alphaPReLU').valueAsNumber = JSON.parse(localStorage.getItem('70'));
 	document.getElementById('alphaELU').valueAsNumber = JSON.parse(localStorage.getItem('71'));
+	document.getElementById('TurnRate').valueAsNumber = JSON.parse(localStorage.getItem('72'));
+	sliderChange(TurnRate, turnRate);
+	document.getElementById('TRTurnRate').valueAsNumber = JSON.parse(localStorage.getItem('73'));
+	sliderChange(TRTurnRate, trturnRateVal);
 	start();
 }
 
@@ -293,6 +301,7 @@ let getHeight;
 let getMaxSpeed;
 let getAcceleration;
 let getFriction;
+let getTurnRate;
 let getASensor;
 let getSLength;
 let getSSpread;
@@ -315,6 +324,7 @@ let getHeightT;
 let getMaxSpeedT;
 let getAccelerationT;
 let getFrictionT;
+let getTRTurnRate;
 let NforTrafficSet;
 let Random;
 let Predetermine;
@@ -398,6 +408,7 @@ function start() {
 	getMaxSpeed = document.getElementById('MaxSpeed').valueAsNumber;
 	getAcceleration = document.getElementById('Acceleration').valueAsNumber;
 	getFriction = document.getElementById('Friction').valueAsNumber;
+	getTurnRate = document.getElementById('TurnRate').valueAsNumber;
 	getASensor = document.getElementById('ASensor').valueAsNumber;
 	getSLength = document.getElementById('SLength').valueAsNumber;
 	getSSpread = document.getElementById('SSpread').valueAsNumber;
@@ -415,6 +426,7 @@ function start() {
 	getMaxSpeedT = document.getElementById('TMaxSpeed').valueAsNumber;
 	getAccelerationT = document.getElementById('TAcceleration').valueAsNumber;
 	getFrictionT = document.getElementById('TFriction').valueAsNumber;
+	getTRTurnRate = document.getElementById('TRTurnRate');
 	NforTrafficSet = document.getElementById('NforTraffic').valueAsNumber;
 	Predetermine = document.getElementById('Set');
 	Random = document.getElementById('Random');
@@ -525,26 +537,46 @@ function start() {
 
 	const path = new Path(getCanvasEl.width / 2, getCanvasEl.height / 2, getCanvasEl.height * 0.9, getCanvasEl.width * 0.9, getLanes);
 	const nrTraffic = [
-		new SmartCar(path.getLaneCenter(0), -100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(3), -700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(0), -900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -1100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(3), -1200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -1500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -1600, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(0), -1800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -2200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -2000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -2400, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(3), -2700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -2900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(0), -3000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(2), -3200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(1), -3300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
-		new SmartCar(path.getLaneCenter(3), -3500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode()),
+		new SmartCar(path.getLaneCenter(0), -100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -1100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -1200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -1500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -1600, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -1800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -2200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -2000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -2400, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -2700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -2900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -3000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -3200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -3300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -3500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -1100, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -1200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -1500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -1600, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -1800, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -2200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -2000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -2400, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(1), -2700, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -2900, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -3000, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(3), -3200, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(2), -3300, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
+		new SmartCar(path.getLaneCenter(0), -3500, getWidthT, getHeightT, getMaxSpeedT, getAccelerationT, getFrictionT, 'Traffic', generateColorCode(), getTRTurnRate),
 	];
 	const cars = generateCars(NforCarsSet);
 	let traffic = [];
@@ -597,7 +629,6 @@ function start() {
 				}
 				break;
 		}
-		brush.save();
 		brush.translate(0, -geniousCar.Y + getCanvasEl.height * 0.8);
 		path.draw(brush);
 		switch (random) {
@@ -618,7 +649,6 @@ function start() {
 		}
 		brush.globalAlpha = 1;
 		geniousCar.draw(brush, true);
-		brush.restore();
 		netBrush.lineDashOffset = -time / 80;
 		Visualiser.drawNetwork(netBrush, geniousCar.Inteligencia);
 		requestAnimationFrame(animate);
@@ -627,7 +657,7 @@ function start() {
 	function generateCars(NforCars) {
 		const cars = [];
 		for (let i = 0; i < NforCars; i++) {
-			cars.push(new SmartCar(path.getLaneCenter(getStartLane), 100, getWidth, getHeight, getMaxSpeed, getAcceleration, getFriction, this.type, 'purple'));
+			cars.push(new SmartCar(path.getLaneCenter(getStartLane), 100, getWidth, getHeight, getMaxSpeed, getAcceleration, getFriction, this.type, 'purple', getTurnRate));
 		}
 		return cars;
 	}
@@ -644,7 +674,8 @@ function start() {
 					getAccelerationT,
 					getFrictionT,
 					'Traffic',
-					generateColorCode()
+					generateColorCode(),
+					getTRTurnRate
 				)
 			);
 		}
@@ -663,7 +694,8 @@ function start() {
 					getAccelerationT,
 					getFrictionT,
 					upWay,
-					generateColorCode()
+					generateColorCode(),
+					getTRTurnRate
 				)
 			);
 			traffic.push(
@@ -676,7 +708,8 @@ function start() {
 					getAccelerationT,
 					getFrictionT,
 					downWay,
-					generateColorCode()
+					generateColorCode(),
+					getTRTurnRate
 				)
 			);
 		}

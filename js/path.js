@@ -7,8 +7,6 @@ class Path {
 		this.laneCount = laneCount;
 		this.left = X - width / 2;
 		this.right = X + width / 2;
-		this.middleLeft = Y - heigth / 2;
-		this.middleRight = Y + heigth / 2;
 		const infinity = 10000;
 		this.top = -infinity;
 		this.bottom = infinity;
@@ -16,26 +14,17 @@ class Path {
 		const topRight = { x: this.right, y: this.top };
 		const bottomLeft = { x: this.left, y: this.bottom };
 		const bottomRight = { x: this.right, y: this.bottom };
-		const topMiddleLeft = { x: this.middleLeft, y: this.top };
-		const topMiddleRight = { x: this.middleRight, y: this.top };
-		const botMiddleLeft = { x: this.middleLeft, y: this.bottom };
-		const botMiddleRight = { x: this.middleRight, y: this.bottom };
 		this.borders = [
 			[topLeft, bottomLeft],
 			[topRight, bottomRight],
 		];
-		this.borders2 = [
-			[topMiddleLeft, botMiddleLeft],
-			[topMiddleRight, botMiddleRight],
-		];
-		this.borders3 = [
-			[topLeft, botMiddleLeft],
-			[topRight, botMiddleRight],
-		];
-		this.borders4 = [
-			[topMiddleLeft, bottomLeft],
-			[topMiddleRight, bottomRight],
-		];
+		//for (let Y = -1000; Y <= 0; Y++) {
+		//	const x = Math.sin(Y * 0.01) * 50;
+		//	this.borders[0].push({ x: x + this.left, y: Y });
+		//	this.borders[1].push({ x: x + this.right, y: Y });
+		//}
+		//this.borders[0].push(bottomLeft);
+		//this.borders[1].push(bottomRight);
 	}
 
 	draw(brush) {
@@ -53,7 +42,9 @@ class Path {
 		this.borders.forEach((border) => {
 			brush.beginPath();
 			brush.moveTo(border[0].x, border[0].y);
-			brush.lineTo(border[1].x, border[1].y);
+			for (let i = 1; i < border.length; i++) {
+				brush.lineTo(border[i].x, border[i].y);
+			}
 			brush.stroke();
 		});
 	}

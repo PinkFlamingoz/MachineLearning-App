@@ -33,7 +33,7 @@ class Layer {
 			if (sum > layer.bias[i]) {
 				switch (valueStr) {
 					case 'Identity':
-						layer.outputs[i] = identity(sum + layer.bias[i]);
+						layer.outputs[i] = 1;
 						break;
 					case 'Inverse':
 						layer.outputs[i] = inverse(sum + layer.bias[i]);

@@ -63,7 +63,7 @@
 					<input type="radio" name="accordion" id="first" checked />
 					<div id="sliderContainer" class="sliderContainer">
 						<p>Starting Lane ... <span id="sLane"></span></p>
-						<input class="slider" type="range" min="0" max="10" value="1" id="SLane" onchange="start()" />
+						<input class="slider" type="range" min="0" max="10" value="0" id="SLane" onchange="start()" />
 						<p>Width ... <span id="width"></span></p>
 						<input class="slider" type="range" min="1" max="100" value="30" id="Width" onchange="start()" />
 						<p>Height ... <span id="height"></span></p>
@@ -77,11 +77,11 @@
 						<p>Turn Rate ... <span id="turnRate"></span></p>
 						<input class="slider" type="range" min="0.01" max="0.1" value="0.03" step="0.01" id="TurnRate" onchange="start()" />
 						<p>Active Sensors ... <span id="aSensor"></span></p>
-						<input class="slider" type="range" min="1" max="20" value="10" id="ASensor" onchange="start()" />
+						<input class="slider" type="range" min="1" max="20" value="12" id="ASensor" onchange="start()" />
 						<p>Sensor Length ... <span id="sLength"></span></p>
-						<input class="slider" type="range" min="1" max="300" value="120" id="SLength" onchange="start()" />
+						<input class="slider" type="range" min="1" max="300" value="111" id="SLength" onchange="start()" />
 						<p>Sensor Spread ... <span id="sSpread"></span></p>
-						<input class="slider" type="range" min="0.01" max="5" value="2.5" step="0.01" id="SSpread" onchange="start()" />
+						<input class="slider" type="range" min="0.01" max="5" value="3.0" step="0.01" id="SSpread" onchange="start()" />
 					</div>
 				</li>
 				<li>
@@ -185,7 +185,7 @@
 						<p>Third Layer nodes ... <span id="3nodes"></span></p>
 						<input class="slider" type="range" min="1" max="20" value="6" id="3Nodes" onchange="start()" />
 						<p>Number of Smart Cars ... <span id="nforCars"></span></p>
-						<input class="slider" type="range" min="1" max="1000" value="100" id="NforCars" onchange="start()" />
+						<input class="slider" type="range" min="1" max="1000" value="333" id="NforCars" onchange="start()" />
 						<p>Mutation amount ... <span id="mutate"></span></p>
 						<input class="slider" type="range" min="0.1" max="1" value="0.1" step="0.1" id="Mutate" onchange="start()" />
 					</div>
@@ -225,7 +225,7 @@
 							<input type="radio" name="choAF" value="Gaussian" id="Gaussian" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>ISRU, α =</p>
-								<input type="number" id="alphaISRU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
+								<input type="number" id="alphaISRU" min="-10" max="10" step="0.1" value="0.1" onchange="start()" />
 							</div>
 							<input type="radio" name="choAF" value="ISRU" id="ISRU" class="radio" onchange="start()" />
 							<p>ReLU</p>
@@ -234,12 +234,12 @@
 							<input type="radio" name="choAF" value="GELU" id="GELU" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>PReLU, α =</p>
-								<input type="number" id="alphaPReLU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
+								<input type="number" id="alphaPReLU" min="-10" max="10" step="0.1" value="0.1" onchange="start()" />
 							</div>
-							<input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" checked onchange="start()" />
+							<input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>ELU, α =</p>
-								<input type="number" id="alphaELU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
+								<input type="number" id="alphaELU" min="-10" max="10" step="0.1" value="10" checked onchange="start()" />
 							</div>
 							<input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()" />
 							<p>SELU</p>

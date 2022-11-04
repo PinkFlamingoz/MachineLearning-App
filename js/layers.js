@@ -190,7 +190,7 @@ function ISRU(x, a) {
 }
 
 function ReLU(x) {
-	return Math.max(0.3, x);
+	return Math.max(0.1, x);
 }
 
 function GELU(x) {

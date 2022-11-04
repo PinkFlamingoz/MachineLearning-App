@@ -7,7 +7,7 @@ class Path {
 		this.laneCount = laneCount;
 		this.left = X - width / 2;
 		this.right = X + width / 2;
-		const infinity = 10000;
+		const infinity = 100000;
 		this.top = -infinity;
 		this.bottom = infinity;
 		const topLeft = { x: this.left, y: this.top };

@@ -225,7 +225,7 @@
 							<input type="radio" name="choAF" value="Gaussian" id="Gaussian" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>ISRU, α =</p>
-								<input type="number" id="alphaISRU" min="-10" max="10" step="1" value="1" onchange="start()" />
+								<input type="number" id="alphaISRU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
 							</div>
 							<input type="radio" name="choAF" value="ISRU" id="ISRU" class="radio" onchange="start()" />
 							<p>ReLU</p>
@@ -234,12 +234,12 @@
 							<input type="radio" name="choAF" value="GELU" id="GELU" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>PReLU, α =</p>
-								<input type="number" id="alphaPReLU" min="-10" max="10" step="1" value="1" onchange="start()" />
+								<input type="number" id="alphaPReLU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
 							</div>
 							<input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" checked onchange="start()" />
 							<div class="afNumb">
 								<p>ELU, α =</p>
-								<input type="number" id="alphaELU" min="-10" max="10" step="1" value="1" onchange="start()" />
+								<input type="number" id="alphaELU" min="-1.0" max="1.0" step="0.1" value="0.1" onchange="start()" />
 							</div>
 							<input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()" />
 							<p>SELU</p>

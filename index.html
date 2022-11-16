@@ -185,7 +185,7 @@
 						<p>Third Layer nodes ... <span id="3nodes"></span></p>
 						<input class="slider" type="range" min="1" max="20" value="6" id="3Nodes" onchange="start()" />
 						<p>Number of Smart Cars ... <span id="nforCars"></span></p>
-						<input class="slider" type="range" min="1" max="1000" value="333" id="NforCars" onchange="start()" />
+						<input class="slider" type="range" min="1" max="1000" value="100" id="NforCars" onchange="start()" />
 						<p>Mutation amount ... <span id="mutate"></span></p>
 						<input class="slider" type="range" min="0.1" max="1" value="0.1" step="0.1" id="Mutate" onchange="start()" />
 					</div>
@@ -239,9 +239,9 @@
 							<input type="radio" name="choAF" value="PReLU" id="PReLU" class="radio" onchange="start()" />
 							<div class="afNumb">
 								<p>ELU, α =</p>
-								<input type="number" id="alphaELU" min="-10" max="10" step="0.1" value="10" checked onchange="start()" />
+								<input type="number" id="alphaELU" min="-10" max="10" step="0.1" value="10" onchange="start()" />
 							</div>
-							<input type="radio" name="choAF" value="ELU" id="ELU" class="radio" onchange="start()" />
+							<input type="radio" name="choAF" value="ELU" id="ELU" class="radio" checked onchange="start()" />
 							<p>SELU</p>
 							<input type="radio" name="choAF" value="SELU" id="SELU" class="radio" onchange="start()" />
 							<p>SoftPlus</p>

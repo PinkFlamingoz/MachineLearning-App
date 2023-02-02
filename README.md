@@ -28,3 +28,7 @@
 ## How the app looks
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/mla.png)
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/ezgif-5-ec3dd2234d.gif)
+![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/PIC1.png)
+![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/PIC2.png)
+![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/PIC3.png)
+![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/PIC4.png)

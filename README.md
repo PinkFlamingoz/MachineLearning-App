@@ -1,5 +1,5 @@
 # MachineLearning-App
- A app where a self driving car lears to overtake cars.
+ A app where a self driving car learns to overtake cars.
  
  ## How to run the app
  1.Either fork or download the app and open the folder in your prefered IDE.
@@ -27,3 +27,4 @@
 
 ## How the app looks
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/mla.png)
+![alt text](https://im5.ezgif.com/tmp/ezgif-5-ec3dd2234d.gif)

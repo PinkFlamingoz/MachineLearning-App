@@ -20,12 +20,12 @@
 - Save, load and delete options for the settings.
 - A visual representation of the neural network.
 
-## Future features
+ ## Future features
 - Automatic generation start.
 - Changing the shape of the road and implementing a map API.
 - Better selection of the best brain.
 
-## How the app looks
+ ## How the app looks
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/mla.png)
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/ezgif-5-ec3dd2234d.gif)
 ![alt text](https://github.com/PinkFlamingoz/MachineLearning-App/blob/main/PIC1.png)

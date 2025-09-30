@@ -1,4 +1,4 @@
-Copyright (c) [Year] Hristijan Stavrov. All rights reserved.
+Copyright (c) Hristijan Stavrov. All rights reserved.
 
 No License is granted.  
 You have no right to use, copy, distribute, modify, sublicense, translate, prepare derivative works of, publish, export, import, display, perform, or otherwise exploit the Software in any manner, in whole or in part.
